@@ -5,6 +5,7 @@ Here we collect some experiences and best practices.
 ## Summary
 
 * **Do not use the "export github" button on Google Code**
+* Migrate code (selectively) using the GitHub importer tool (web-based)
 * Migrate issues using the Google Issue Exporter tool (Python script)
 * Migrate landing page (and wiki) to GitHub pages (and Jekyll)
 
