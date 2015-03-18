@@ -16,8 +16,8 @@ What the "Exort to GitHub" button does:
 * Creates a new repository under your personal GitHub account with the name of the Google Code project
 * Migrate the complete contents of the SVN repository to that new git repo
 * Migrate all the issues over - they will all appear under the name of the person running the migration and timestamp will be the time of migration
+* Migrate the wiki contents over - they will be added as a branch called "wiki" in the target repository and be coverted to markdown format. However, only the latest state of the pages is preseved, the wiki history is lost.
 * If you are very lucky, it completes - most likely it will send a failure mail
-* If it completes, supposedly you cannot migrate again
 
 What the "Export to GitHub" button does **not**:
 
