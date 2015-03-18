@@ -78,3 +78,57 @@ So by using GitHub pages instead of the GitHub wiki, you can gain:
 * the ability to inject analytics in all pages via Jekyll includes 
 * a nice URL
 * the ability to use your own domain name (CNAME) for your webpresence instead of lala.github.io
+
+## Fixing the Maven configuration
+
+Projects built with Maven need to be updated after the migration to GitHub / git. This affects mainly the following things:
+
+* the SCM settings
+* the issue management settings
+* the folder structure
+
+### SCM settings
+
+The SCM settings must be changed to reflect the new repository location and version control system, e.g. (FIXME needs testing during a release - maybe `<tag>HEAD</tag>`required)
+
+```
+<scm>
+  <connection>scm:git:git://github.com/USER-OR-ORG-ID/REPO</connection>
+  <developerConnection>scm:git:git@github.com:USER-OR-ORG-ID/REPO.git</developerConnection>
+  <url>https://github.com/USER-OR-ORG-ID/REPO</url>
+</scm>	
+```
+
+### Issue management
+
+```
+<issueManagement>
+  <url>https://github.com/USER-OR-ORG-ID/REPO/issues</url>
+  <system>GitHub Issues</system>
+</issueManagement>
+```
+
+### Folder structure
+
+The Maven release plugin does not work well with git unless the root POM is in the repository root. So if you had your project prepared to be a multi-module Maven project but never actually turned it into multi-module, then your Subversion folder structure might have looked something like this:
+
+```
+<svn repo root>
+`- tags
+`- branches
+`- trunk
+   `- myproject
+      `- pom.xml
+      `- ...
+```
+
+This will have been converted to GitHub as
+
+```
+<git repo root>
+`- myproject
+   `- pom.xml
+    `- ...
+```
+
+For the release plugin to work properly, the easiest will be to remove the `myproject` folder and move its contents to the repo root. Fortunately, git is (supposed to be) good at tracking moved files. Alternatively, you could create a `pom.xml` file at the root of the repo and add `myproject` as a module.
