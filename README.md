@@ -21,7 +21,6 @@ What the "Exort to GitHub" button does:
 
 What the "Export to GitHub" button does **not**:
 
-* Allow you to convert again if you are not happy with the result (supposedly)
 * Allow you to update contributor IDs - mind that Subversion only has a "committer ID" that may not even be a mail address, while in git, there is a "name" and a "email" field to fill in. Most likely, you will want to map the committer IDs to some sensible name/mail values.
 * Allow you to select a subtree of a repository for conversion, e.g. if you have changed the standard repository layout on Google Code
 
