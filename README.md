@@ -11,7 +11,7 @@ Here we collect some experiences and best practices.
 
 ## Do not use the "Export to Github" button
 
-What the "Exort to GitHub" button does:
+What the "Export to GitHub" button does:
 
 * Creates a new repository under your personal GitHub account with the name of the Google Code project
 * Migrate the complete contents of the SVN repository to that new git repo
