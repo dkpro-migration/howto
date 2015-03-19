@@ -4,7 +4,8 @@ Here we collect some experiences and best practices.
 
 ## Summary
 
-* **Do not use the "export github" button on Google Code**
+* **Do not use the "export github" button on Google Code!**
+* **Do not mark the projects "as moved" on Google Code!**
 * Migrate code (selectively) using the GitHub importer tool (web-based)
 * Migrate issues using the Google Issue Exporter tool (Python script)
 * Migrate landing page (and wiki) to GitHub pages (and Jekyll)
@@ -55,6 +56,8 @@ To use these script, you need:
   * `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
 * check out "Project Hosting" data from Google Takeout
 * run the script
+
+**Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
 
 ### Migrating the project homepage and wiki
 
