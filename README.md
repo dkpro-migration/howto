@@ -43,7 +43,7 @@ Google offers a set of scripts to migrate issues from Google Code to GitHub. Thi
   * the issue text however will contain original reporter/commenter, time of the comment, and a link back to Google Code (working as long as it still exists)
 * regarding the speed
   * conversion will be slow because the script tries to avoid triggering the abuse block
-* regarding attachment
+* regarding attachments
   * issue attachments are neither migrated nor is a mention added to the issue text
   * the JSON exported from Google Takeout mentions attachments, but does not actually contain them
   * GitHub does not suppport attachments anyway (other than images)
