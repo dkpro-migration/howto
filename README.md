@@ -38,11 +38,15 @@ GitHub has a nice importer tool that allows you to import code and history from 
 Google offers a set of scripts to migrate issues from Google Code to GitHub. This works reasonably well with the following restrictions:
 
 * regarding issue metadata
-** all issues will appear to come from the person doing the migration
-** all issues will appear to have been made at the time of the migration
-** the issue text however will contain original reporter/commenter, time of the comment, and a link back to Google Code (working as long as it still exists)
+  * all issues will appear to come from the person doing the migration
+  * all issues will appear to have been made at the time of the migration
+  * the issue text however will contain original reporter/commenter, time of the comment, and a link back to Google Code (working as long as it still exists)
 * regarding the speed
-** conversion will be slow because the script tries to avoid triggering the abuse block
+  * conversion will be slow because the script tries to avoid triggering the abuse block
+* regarding attachment
+  * issue attachments are neither migrated nor is a mention added to the issue text
+  * the JSON exported from Google Takeout mentions attachments, but does not actually contain them
+  * GitHub does not suppport attachments anyway (other than images)
 
 To use these script, you need:
 
