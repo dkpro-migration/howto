@@ -74,7 +74,7 @@ To use these script, you need:
   * `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
 * check out "Project Hosting" data from Google Takeout
 * run the script
-  * For dkpro/similarity the command was is as follows: `python github_issue_converter.py --github_oauth_token="<removed auth code>" --github_owner_username=dkpro --github_repo_name=similarity --issue_file_path=GoogleCodeProjectHosting.json --project_name=dkpro-similarity-asl`
+  * For dkpro/similarity the command was is as follows: `python github_issue_converter.py --github_oauth_token="<removed auth token>" --github_owner_username=dkpro --github_repo_name=similarity --issue_file_path=GoogleCodeProjectHosting.json --project_name=dkpro-similarity-asl`
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
 
