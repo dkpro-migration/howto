@@ -61,6 +61,7 @@ Google offers a set of scripts to migrate issues from Google Code to GitHub. Thi
   * the issue text however will contain original reporter/commenter, time of the comment, and a link back to Google Code (working as long as it still exists)
 * regarding the speed
   * conversion will be slow because the script tries to avoid triggering the abuse block
+  * the abuse block may be triggered anyway, but the script allows you to continue with the last issue
 * regarding attachments
   * issue attachments are neither migrated nor is a mention added to the issue text
   * the JSON exported from Google Takeout mentions attachments, but does not actually contain them
@@ -68,11 +69,12 @@ Google offers a set of scripts to migrate issues from Google Code to GitHub. Thi
 
 To use these script, you need:
 
-* the scripts
+* the scripts, which you can get by cloning the Google code repository: git clone https://code.google.com/p/support-tools/
 * modify the "github_issue_converter.py" script to disable certificate checks
   * `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
 * check out "Project Hosting" data from Google Takeout
 * run the script
+  * For dkpro/similarity the command was is as follows: python github_issue_converter.py --github_oauth_token="<removed auth code>" --github_owner_username=dkpro --github_repo_name=similarity --issue_file_path=GoogleCodeProjectHosting.json --project_name=dkpro-similarity-asl
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
 
