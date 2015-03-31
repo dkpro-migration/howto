@@ -157,3 +157,10 @@ This will have been converted to GitHub as
 ```
 
 For the release plugin to work properly, the easiest will be to remove the `myproject` folder and move its contents to the repo root. Fortunately, git is (supposed to be) good at tracking moved files. Alternatively, you could create a `pom.xml` file at the root of the repo and add `myproject` as a module.
+
+## Changes in development environment and workflows
+This section is intended to summarize important changes when moving from SVN to Git.
+### Developing on Windows
+It is crucial to globally set the line endings:
+https://help.github.com/articles/dealing-with-line-endings/#global-settings-for-line-endings
+
