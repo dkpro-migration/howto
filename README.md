@@ -74,7 +74,7 @@ To use these script, you need:
 * the scripts use Python 2 (i.e. do not work with Python 3) 
 * check out "Project Hosting" data from Google Takeout (see also: https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Use Google Takeout to Get Issue Data")
 * perform the export of Google Code project issues to GitHub: create a personal access token on GitHub (see also https://github.com/settings/tokens) and then run the script, see https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Exporting to GitHub"
-* if for some reason GitHub is going down during the migration of the issues or the process is killed (seems to happen regularly), the script detects already migrated issues, establishes a consistent state and continues with the migration
+* if for some reason GitHub is going down during the migration of the issues or the process is killed (seems to happen regularly), the script detects already migrated issues, establishes a consistent state and continues with the migration.
 
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
