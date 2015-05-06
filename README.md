@@ -75,7 +75,7 @@ To use these script, you need:
 * check out "Project Hosting" data from Google Takeout (see also: https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Use Google Takeout to Get Issue Data")
 * perform the export of Google Code project issues to GitHub: create a personal access token on GitHub (see also https://github.com/settings/tokens) and then run the script, see https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Exporting to GitHub"
 * if for some reason GitHub is going down during the migration of the issues or the process is killed (seems to happen regularly), the script detects already migrated issues, establishes a consistent state and continues with the migration. At least this is how it should work. There seems to be a bug in the script, because eventually, you might encounter the message "RuntimeError: Unable to find Google Code issue #XX 'IssueTiele'.
-    Were issues added to GitHub since last export attempt?" Which means that the issue import is out of sync and can not be continued.
+    Were issues added to GitHub since last export attempt?" Which means that the issue import is out of sync and can not be continued. This has been reported elswhere (https://code.google.com/p/support-tools/issues/detail?id=90).
 
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
