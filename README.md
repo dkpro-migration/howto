@@ -71,14 +71,18 @@ This works reasonably well with the following restrictions:
 To use these script, you need:
 
 * the scripts, which you can get by cloning the Google code repository: git clone https://code.google.com/p/support-tools/
-* modify the "github_issue_converter.py" script to disable certificate checks: in `__init__`: replace `self._http = http_instance if http_instance else httplib2.Http()` by `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
+  * if you have cloned it before, make sure you **update** as there might be bug fixes! 
+* modify the "github_issue_converter.py" script to disable certificate checks: 
+  * in `__init__`: 
+  * replace `self._http = http_instance if http_instance else httplib2.Http()` 
+  * by `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
 * the scripts use Python 2 (i.e. do not work with Python 3) 
-* check out "Project Hosting" data from Google Takeout (see also: https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Use Google Takeout to Get Issue Data")
-* to perform the export of Google Code project issues to GitHub: create a personal access token on GitHub (see also https://github.com/settings/tokens)
-* run the script, see https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Exporting to GitHub"
+* check out "Project Hosting" data from Google Takeout (see also: ["Use Google Takeout to Get Issue Data"](https://code.google.com/p/support-tools/wiki/IssueExporterTool))
+* to perform the export of Google Code project issues to GitHub: [create a personal access token on GitHub](https://github.com/settings/tokens)
+* run the script, see ["Exporting to GitHub"](https://code.google.com/p/support-tools/wiki/IssueExporterTool)
   * For dkpro/similarity the command was is as follows: `python github_issue_converter.py --github_oauth_token="<removed auth token>" --github_owner_username=dkpro --github_repo_name=similarity --issue_file_path=GoogleCodeProjectHosting.json --project_name=dkpro-similarity-asl`
 * if for some reason GitHub is going down during the migration of the issues or the process is killed (seems to happen regularly), the script detects already migrated issues, establishes a consistent state and continues with the migration. At least this is how it should work. There seems to be a bug in the script, because eventually, you might encounter the message "RuntimeError: Unable to find Google Code issue #XX 'IssueTiele'.
-    Were issues added to GitHub since last export attempt?" Which means that the issue import is out of sync and can not be continued. This has been reported elswhere (https://code.google.com/p/support-tools/issues/detail?id=90).
+    Were issues added to GitHub since last export attempt?" Which means that the issue import is out of sync and can not be continued. This has been [reported](https://code.google.com/p/support-tools/issues/detail?id=90).
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
 
@@ -164,6 +168,7 @@ For the release plugin to work properly, the easiest will be to remove the `mypr
 
 ## Changes in development environment and workflows
 This section is intended to summarize important changes when moving from SVN to Git.
+
 ### Developing on Windows
 It is crucial to globally set the line endings:
 https://help.github.com/articles/dealing-with-line-endings/#global-settings-for-line-endings
