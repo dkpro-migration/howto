@@ -41,7 +41,7 @@ Instead of marking the project "as moved", do the following:
 
 ### Migrating a Subversion repository
 
-GitHub has a nice importer tool that allows you to import code and history from a remote Subversion repository. We use that to import our code from Google Code. In particular, we can:
+GitHub has a nice importer tool that allows you to import code and history from a remote Subversion repository. See instructions here: https://help.github.com/articles/importing-from-subversion/. We use that to import our code from Google Code. In particular, we can:
 
 * select a subtree of the SVN repository to be imported - for our projects, we usually changed the default layout (branches, tags, trunk, wiki) and created one or more folders parallel to "wiki" which then contain the standard SVN layout (branches, tags, trunk). We will want to import each of these folders into a separate git repository on GitHub (and ignore the wiki for now). If only a fraction of the committers have worked on this particular subtree, please see the note below to save you some work.
 * map the Google Code committer IDs to proper name/value settings - The importer offers a nice UI to do the mapping. However, one needs to pay attention. Simply entering GitHub user IDs will not do what you may expect. IF you enter a user ID, the "name" will be set to the real name configured on that user ID and the "mail" will be set to `<userid>@users.noreply.github.com`. Commits will not be attributed to the profile of the users unless they enable the setting "Keep my email address private" in the email settings of their profile. Simply entering a mail address is also not the way to go, because it will cause both "name" and "mail" to be set to the mail address. Instead, you will want to enter a name/mail in the format `Jessy James <jessy@somedomain.com>`. This will cause the "name" to be set to the value before the pointy brackets and the "mail" to be set to the value between the pointy brackets. Of course you may actually want to keep you mail address private to avoid spam (typically *not* a problem really), then to be sure, you should use `Name you Choose <userid@users.noreply.github.com>`. Mind to make the same settings in the git client on your own computer!
@@ -53,7 +53,8 @@ In case you need to fix committer IDs later, e.g. because you missed somebody bu
 
 ### Migrating the issues
 
-Google offers a set of scripts to migrate issues from Google Code to GitHub. This works reasonably well with the following restrictions:
+Google offers a set of scripts to migrate issues from Google Code to GitHub, see https://code.google.com/p/support-tools/wiki/IssueExporterTool. 
+This works reasonably well with the following restrictions:
 
 * regarding issue metadata
   * all issues will appear to come from the person doing the migration
@@ -70,11 +71,14 @@ Google offers a set of scripts to migrate issues from Google Code to GitHub. Thi
 To use these script, you need:
 
 * the scripts, which you can get by cloning the Google code repository: git clone https://code.google.com/p/support-tools/
-* modify the "github_issue_converter.py" script to disable certificate checks
-  * `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
-* check out "Project Hosting" data from Google Takeout
-* run the script
+* modify the "github_issue_converter.py" script to disable certificate checks: in `__init__`: replace `self._http = http_instance if http_instance else httplib2.Http()` by `self._http = http_instance if http_instance else httplib2.Http(disable_ssl_certificate_validation=True)`
+* the scripts use Python 2 (i.e. do not work with Python 3) 
+* check out "Project Hosting" data from Google Takeout (see also: https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Use Google Takeout to Get Issue Data")
+* to perform the export of Google Code project issues to GitHub: create a personal access token on GitHub (see also https://github.com/settings/tokens)
+* run the script, see https://code.google.com/p/support-tools/wiki/IssueExporterTool - "Exporting to GitHub"
   * For dkpro/similarity the command was is as follows: `python github_issue_converter.py --github_oauth_token="<removed auth token>" --github_owner_username=dkpro --github_repo_name=similarity --issue_file_path=GoogleCodeProjectHosting.json --project_name=dkpro-similarity-asl`
+* if for some reason GitHub is going down during the migration of the issues or the process is killed (seems to happen regularly), the script detects already migrated issues, establishes a consistent state and continues with the migration. At least this is how it should work. There seems to be a bug in the script, because eventually, you might encounter the message "RuntimeError: Unable to find Google Code issue #XX 'IssueTiele'.
+    Were issues added to GitHub since last export attempt?" Which means that the issue import is out of sync and can not be continued. This has been reported elswhere (https://code.google.com/p/support-tools/issues/detail?id=90).
 
 **Do not mark the projects "as moved" on Google Code!** - The moved issues contain links back to the original issues on Google Code which might still have the attachments! (As far as I can tell) If you mark the project "as moved", you can no longer access the issues.
 
