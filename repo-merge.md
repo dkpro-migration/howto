@@ -7,14 +7,14 @@
 * check out primary repo
 * add secondary repo as additional remote
 * pull
-** [X] fetch from all remotes
-** [X] prune tracking branches no longer present on remote(s)
-** [X] fetch and store all tags locally
+  * [X] fetch from all remotes  
+  * [X] prune tracking branches no longer present on remote(s)
+  * [X] fetch and store all tags locally
 * create a new empty branch to host the secondary repo
-** git checkout --orphan NEWBRANCH
-** git rm -rf .
+** `git checkout --orphan NEWBRANCH`
+** `git rm -rf .`
 * merge oldes branch from secondary repo into the new empty branch
-** git merge gpl-rec/1.2.x
+** `git merge gpl-rec/1.2.x`
 * repeat the previous two steps with other branches from secondary repo from the oldest to the newest and do not forget the master
 
 At this point you should have local branches for all branches of the secondary remote repo and all tags from the secondary repo should be available locally as well - do not forget the "master" branch of the seconardy repo!
@@ -28,7 +28,7 @@ Now, we want to merge the master branch we got from the secondary repo into the 
 
 We assume that the branches have by-and-large no overlapping files, e.g. because they are both multi-module maven projects that have submodules by different names. If there are files or folders with the exactly same names in both master branches, you should check out the master branch of the secondary repo and rename the files/folders before attempting the merge. A typical candidate to be renamed is the aggregate pom.xml file in the secondary master.
 
-To move/rename files out of the way use "git mv" so you preserve history.
+To move/rename files out of the way use `git mv` so you preserve history.
 
 * Now switch to the primary repo master branch
 * Merge the secondary repo master branch - this should work now without conflicts
