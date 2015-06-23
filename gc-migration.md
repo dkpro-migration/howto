@@ -29,7 +29,7 @@ What the "Export to GitHub" button does **not**:
 
 If you mark the projects "as moved" on Google Code, you can no longer access any of its data (as far as I can tell). This is bad because not all data is automatically convered in the migration process and some data cannot even be migrated:
 
-- the Google Code start page contants are lost including any sidebar links you might have configured
+- the Google Code start page contents are lost including any sidebar links you might have configured
 - issue attachments cannot be converted to GitHub because it does not support attachments!
 
 Instead of marking the project "as moved", do the following:
