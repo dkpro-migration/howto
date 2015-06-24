@@ -72,7 +72,7 @@ To use these script, you need:
 
 * the scripts, which you can get by cloning the Google code repository: git clone https://code.google.com/p/support-tools/
   * if you have cloned it before, make sure you **update** as there might be bug fixes! 
-* [Contact GitHub](https://github.com/contact?form%5Bsubject%5D=Google+Code+Export:+API+Abuse+Rate+Limits) to request the anti-abuse rate limit for your account raised.  If you don't do this, you may run into the abuse detection mechanism after a couple of issues.  If you do do this, then you can remove the `--rate_limit` flag and things will go much faster.
+* [Contact GitHub](https://github.com/contact?form%5Bsubject%5D=Google+Code+Export:+API+Abuse+Rate+Limits) to request the anti-abuse rate limit for your account raised.  If you don't do this, you may run into the abuse detection mechanism after a couple of issues.
 * modify the "github_issue_converter.py" script to disable certificate checks (**this is not necessary in later versions of the script**)
   * in `__init__`: 
   * replace `self._http = http_instance if http_instance else httplib2.Http()` 
