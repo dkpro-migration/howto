@@ -117,6 +117,15 @@ So by using GitHub pages instead of the GitHub wiki, you can gain:
 * a nice URL
 * the ability to use your own domain name (CNAME) for your webpresence instead of lala.github.io
 
+#### Cleaning up on Google Code
+
+As previously mentioned, you may not want to use the Google Code setting which marks your project as moved, as that will cut off access to any attachments in the old issue tracker.  However, you should update your old Google Code page to forward visitors to your project's new home, and to prevent them from using the old source repository and issue tracker:
+
+* Replace your project's description page with a prominent message notifying visitors that the project has moved to GitHub.  Provide a link.
+* Once you migrate the source code repository, go to the "Administer" tab, select "Tabs" from the menu bar, and check the "Hide" box next to "Source".
+* Once you migrate the issue tracker, go to the "Administer" tab, select "Tabs" from the menu bar, and check the "Hide" box next to "Issues".
+* Consider removing all your wiki pages, or revising them to include prominent messages notifying visitors where they can obtain the current documentation.
+
 ## Fixing the Maven configuration
 
 Projects built with Maven need to be updated after the migration to GitHub / git. This affects mainly the following things:
