@@ -121,11 +121,11 @@ So by using GitHub pages instead of the GitHub wiki, you can gain:
 
 As previously mentioned, you may not want to use the Google Code setting which marks your project as moved, as that will cut off access to any attachments in the old issue tracker.  However, you should update your old Google Code page to forward visitors to your project's new home, and to prevent them from using the old source repository, wiki, and issue tracker:
 
-* While you are in the process of migrating the project, add a prominent notice to your project's description page notifying visitors that the project is moving to GitHub.
+* While you are in the process of migrating the project, add a prominent notice to your project's description page notifying visitors that the project is moving to GitHub.   Provide a link.
 * Once you migrate the source code repository, go to the "Administer" tab, select "Tabs" from the menu bar, and check the "Hide" box next to "Source".
 * Once you migrate the issue tracker, go to the "Administer" tab, select "Tabs" from the menu bar, and check the "Hide" box next to "Issues".
 * Once you migrate the project documentation, go to the "Administer" tab, select "Tabs" from the menu bar, and check the "Hide" box next to "Wiki".
-* Once _everything_ has been migrated, peplace your project's description page with a prominent message notifying visitors that the project has moved to GitHub.  Provide a link.
+* Once _everything_ has been migrated, replace your project's description page with a prominent message notifying visitors that the project has moved to GitHub.  Provide a link.
 
 ## Fixing the Maven configuration
 
