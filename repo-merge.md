@@ -11,10 +11,10 @@
   * [X] prune tracking branches no longer present on remote(s)
   * [X] fetch and store all tags locally
 * create a new empty branch to host the secondary repo
-** `git checkout --orphan NEWBRANCH`
-** `git rm -rf .`
+  * `git checkout --orphan NEWBRANCH`
+  * `git rm -rf .`
 * merge oldes branch from secondary repo into the new empty branch
-** `git merge gpl-rec/1.2.x`
+  * `git merge gpl-rec/1.2.x`
 * repeat the previous two steps with other branches from secondary repo from the oldest to the newest and do not forget the master
 
 At this point you should have local branches for all branches of the secondary remote repo and all tags from the secondary repo should be available locally as well - do not forget the "master" branch of the seconardy repo!
